@@ -1,8 +1,10 @@
 package com.coderboost.propertyservice.service;
 
-import com.coderboost.propertyservice.dto.request.NewCustomer;
+import com.coderboost.propertyservice.dto.CustomerDto;
 
 public interface CustomerService {
 
-    void saveCustomer(NewCustomer newCustomer);
+    void saveCustomer(CustomerDto newCustomer);
+
+    CustomerDto getCustomerByUserId(long userId);
 }

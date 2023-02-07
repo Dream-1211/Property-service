@@ -1,20 +1,25 @@
 package com.coderboost.propertyservice.mapper;
 
 import com.coderboost.propertyservice.dto.CustomerDto;
-import com.coderboost.propertyservice.entity.Address;
-import com.coderboost.propertyservice.entity.Customer;
+import com.coderboost.propertyservice.dto.response.OwnerDto;
+import com.coderboost.propertyservice.entity.Owner;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
-public class CustomerMapper {
+public class OwnerMapper {
 
-    public static CustomerDto toDto(Customer customer) {
-        return new CustomerDto(customer.getName(), customer.getUserId(), customer.getAddress().getStreet(),
-                customer.getAddress().getZipCode(), customer.getAddress().getState(), customer.getAddress().getLongitude(),
-                customer.getAddress().getLatitude());
+    public static List<OwnerDto> toListDto(List<Owner> owners) {
+
+        List<OwnerDto> ownerDtoList = new ArrayList<>();
+        for(Owner owner: owners ){
+            ownerDtoList.add(new OwnerDto(owner.getName(), owner.getUserId(), owner.getAddress().getStreet(),
+                    owner.getAddress().getZipCode(), owner.getAddress().getState(), owner.getAddress().getLongitude(),
+                    owner.getAddress().getLatitude(), owner.getStatus()));
+        }
+
+        return ownerDtoList;
     }
 
-    public static Customer toEntity(CustomerDto customerDto){
-        Address address = new Address(customerDto.getStreet(), customerDto.getZipCode(), customerDto.getState(), customerDto.getLatitude(), customerDto.getLongitude());
-        return new Customer(customerDto.getName(), customerDto.getUserId(), address);
-    }
 }

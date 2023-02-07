@@ -1,12 +1,14 @@
-package com.coderboost.propertyservice.dto.response;
+package com.coderboost.propertyservice.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
 public class CustomerDto {
     String name;
     long userId;

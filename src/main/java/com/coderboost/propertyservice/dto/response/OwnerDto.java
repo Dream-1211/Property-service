@@ -1,5 +1,6 @@
-package com.coderboost.propertyservice.dto;
+package com.coderboost.propertyservice.dto.response;
 
+import com.coderboost.propertyservice.enums.UserStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -9,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public class CustomerDto {
+public class OwnerDto {
     String name;
     long userId;
     String street;
@@ -17,4 +18,6 @@ public class CustomerDto {
     String state;
     String latitude;
     String longitude;
+    UserStatus status;
+
 }
