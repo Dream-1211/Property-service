@@ -1,8 +1,12 @@
 package com.coderboost.propertyservice.entity;
 
 
+import com.coderboost.propertyservice.enums.PropertyStatus;
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -35,8 +39,10 @@ public class Property {
 
     String detail;
     String category;
-    String status;
-    String isActive;
+    @Column(name = "status")
+    @Enumerated(EnumType.STRING)
+    PropertyStatus status;
+    boolean isActive;
     @ManyToOne
     @JoinColumn(name = "owner_id")
     Owner owner;

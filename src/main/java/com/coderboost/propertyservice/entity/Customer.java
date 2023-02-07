@@ -37,7 +37,7 @@ public class Customer {
     Address address;
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
-    private UserStatus status = UserStatus.ACTIVE;
+    UserStatus status = UserStatus.ACTIVE;
     @OneToMany(mappedBy = "customer")
     List<CustomerOffer> offer;
 

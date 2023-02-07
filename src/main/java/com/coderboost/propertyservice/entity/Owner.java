@@ -38,7 +38,7 @@ public class Owner {
     Address address;
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
-    private UserStatus status = UserStatus.INACTIVE;
+    UserStatus status = UserStatus.INACTIVE;
 
     @OneToMany(mappedBy = "owner", cascade = CascadeType.REMOVE)
     List<Property> property;
