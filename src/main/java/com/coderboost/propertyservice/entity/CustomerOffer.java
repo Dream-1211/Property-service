@@ -10,7 +10,7 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
-import java.util.Date;
+import java.time.Instant;
 
 @Entity
 @Table(name = "customer_offers")
@@ -33,9 +33,9 @@ public class CustomerOffer {
     Property property;
 
     String status;
-    Date createdAt;
+    Instant createdAt;
 
-    Date updatedAt;
+    Instant updatedAt;
 
 
 

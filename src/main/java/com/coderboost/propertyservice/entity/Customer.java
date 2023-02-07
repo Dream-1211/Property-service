@@ -22,10 +22,7 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
     String name;
-
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    Users user;
+    long userId;
     @OneToOne
     @JoinColumn(name = "address_id")
     Address address;
