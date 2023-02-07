@@ -1,6 +1,7 @@
 package com.coderboost.propertyservice.entity;
 
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,11 +24,16 @@ public class Customer {
     long id;
     String name;
     long userId;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
     Address address;
-    String status;
-
+    String status = "active";
     @OneToMany(mappedBy = "customer")
     List<CustomerOffer> offer;
+
+    public Customer(String name, long userId, Address address) {
+        this.name = name;
+        this.userId = userId;
+        this.address = address;
+    }
 }

@@ -1,7 +1,12 @@
 package com.coderboost.propertyservice.repo;
 
-import com.coderboost.propertyservice.service.CustomerService;
+import com.coderboost.propertyservice.entity.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface CustomerRepo extends JpaRepository<CustomerService, Long> {
+import java.util.Optional;
+
+@Repository
+public interface CustomerRepo extends JpaRepository<Customer, Long> {
+    Optional<Customer> findByUserId(long userId);
 }
