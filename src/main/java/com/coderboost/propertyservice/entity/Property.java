@@ -43,15 +43,24 @@ public class Property {
     PropertyCategory category;
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
-    PropertyStatus status;
-    boolean isActive;
+    PropertyStatus status = PropertyStatus.UNAVAILABLE;
+    boolean isActive = false;
     @ManyToOne
     @JoinColumn(name = "owner_id")
     Owner owner;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.REMOVE, CascadeType.PERSIST})
     @JoinColumn(name = "property_id")
     List<PropertyImage> images;
 
 
+    public Property(String name, PropertyLocation propertyLocation, String detail, PropertyCategory category,
+                    List<PropertyImage> images) {
+
+        this.name = name;
+        this.location = propertyLocation;
+        this.detail = detail;
+        this.category = category;
+        this.images = images;
+    }
 }

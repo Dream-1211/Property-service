@@ -58,7 +58,10 @@ public class OwnerController {
         return ownerService.getOwnerPropertyAllOffers(id, pid);
     }
 
-
+    @PostMapping
+    public void addNewOwner(@RequestBody NewOwnerDto ownerDto) {
+        ownerService.saveOwner(ownerDto);
+    }
 
 
 }

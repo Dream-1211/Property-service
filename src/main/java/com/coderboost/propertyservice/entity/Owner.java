@@ -33,18 +33,24 @@ public class Owner {
     long id;
     String name;
     long userId;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
     Address address;
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
     UserStatus status = UserStatus.INACTIVE;
 
-    @OneToMany(mappedBy = "owner", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
     List<Property> property;
 
     @OneToMany(mappedBy = "owner")
     List<PropertyOffers> offers;
 
 
+    public Owner(String name, long userId, Address address, List<Property> properties) {
+        this.name = name;
+        this.userId = userId;
+        this.address = address;
+        this.property = properties;
+    }
 }

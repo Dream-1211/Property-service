@@ -4,6 +4,7 @@ import com.coderboost.propertyservice.dto.CustomerDto;
 import com.coderboost.propertyservice.dto.response.PropertyOfferDto;
 import com.coderboost.propertyservice.entity.Customer;
 import com.coderboost.propertyservice.entity.PropertyOffers;
+import com.coderboost.propertyservice.exceptions.UserNotFoundException;
 import com.coderboost.propertyservice.mapper.CustomerMapper;
 import com.coderboost.propertyservice.mapper.PropertyOfferMapper;
 import com.coderboost.propertyservice.repo.CustomerRepo;
@@ -38,7 +39,9 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public CustomerDto getCustomerByUserId(long userId) {
         Optional<Customer> customer = customerRepo.findByUserId(userId);
-        return customer.isPresent() ? CustomerMapper.toDto(customer.get()) : new CustomerDto();
+        if (customer.isPresent())
+        return CustomerMapper.toDto(customer.get());
+        else throw new UserNotFoundException("Customer with userID "+userId+" does not exist.");
     }
 
     @Override

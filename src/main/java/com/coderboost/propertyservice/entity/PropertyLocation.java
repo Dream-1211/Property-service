@@ -23,4 +23,10 @@ public class PropertyLocation {
     String address;
     String latitude;
     String longitude;
+
+    public PropertyLocation(String address, String latitude, String longitude) {
+        this.address = address;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
 }

@@ -17,7 +17,7 @@ public class CustomerMapper {
     }
 
     public static Customer toEntity(CustomerDto customerDto) {
-        Address address = new Address(customerDto.getId(), customerDto.getStreet(), customerDto.getZipCode(), customerDto.getState(), customerDto.getLatitude(), customerDto.getLongitude());
+        Address address = new Address( customerDto.getStreet(), customerDto.getZipCode(), customerDto.getState(), customerDto.getLatitude(), customerDto.getLongitude());
         return new Customer(customerDto.getName(), customerDto.getUserId(), address);
     }
 

@@ -1,5 +1,6 @@
 package com.coderboost.propertyservice.service;
 
+import com.coderboost.propertyservice.dto.request.NewOwnerDto;
 import com.coderboost.propertyservice.dto.response.OwnerDetailsDto;
 import com.coderboost.propertyservice.dto.response.OwnerDto;
 import com.coderboost.propertyservice.dto.response.PropertyOfferDto;
@@ -17,4 +18,6 @@ public interface OwnerService {
     OwnerDto getOwnerByUserId(long userId);
 
     List<PropertyOfferDto> getOwnerPropertyAllOffers(long id, long pid);
+
+    void saveOwner(NewOwnerDto ownerDto);
 }
