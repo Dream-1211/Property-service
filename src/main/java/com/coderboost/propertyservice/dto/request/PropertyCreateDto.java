@@ -1,6 +1,5 @@
 package com.coderboost.propertyservice.dto.request;
 
-import com.coderboost.propertyservice.dto.response.PropertyImagesDto;
 import com.coderboost.propertyservice.enums.PropertyCategory;
 import com.coderboost.propertyservice.enums.PropertyStatus;
 import lombok.AllArgsConstructor;

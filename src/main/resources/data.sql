@@ -29,7 +29,7 @@ VALUES
 INSERT INTO property (id, name, location_id, detail, category, status, is_active, owner_id)
 VALUES
     (1001, 'My House', 1001, 'My first property', 'HOUSE', 'AVAILABLE', 'YES', 1001),
-    (1002, 'My Apartment', 1002, 'My second property', 'APARTMENT', 'RENTED', 'NO', 1002);
+    (1002, 'My Apartment', 1002, 'My second property', 'APARTMENT', 'AVAILABLE', 'NO', 1002);
 
 
 INSERT INTO property (id, name, detail, category, status, is_active, owner_id, location_id)

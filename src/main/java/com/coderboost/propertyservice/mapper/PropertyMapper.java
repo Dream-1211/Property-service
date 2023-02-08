@@ -2,10 +2,13 @@ package com.coderboost.propertyservice.mapper;
 
 import com.coderboost.propertyservice.dto.request.PropertyCreateDto;
 import com.coderboost.propertyservice.dto.request.PropertyImageRequestDto;
+import com.coderboost.propertyservice.dto.response.PropertyDetailsDto;
+import com.coderboost.propertyservice.dto.response.PropertyImagesDto;
 import com.coderboost.propertyservice.entity.Property;
 import com.coderboost.propertyservice.entity.PropertyImage;
 import com.coderboost.propertyservice.entity.PropertyLocation;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PropertyMapper {
@@ -30,5 +33,26 @@ public class PropertyMapper {
                         .data(image.getData())
                         .build()
         ).toList();
+    }
+
+    public static List<PropertyDetailsDto> toPropertyDetailDto(List<Property> properties) {
+        List<PropertyDetailsDto> propertyDetailsDtoList = new ArrayList<>();
+        properties.forEach(p -> {
+                    List<PropertyImagesDto> images = p.getImages().stream().map(propImg -> new PropertyImagesDto(propImg.getId(), propImg.getName(), propImg.getType(), propImg.getData())).toList();
+                    propertyDetailsDtoList.add(
+                            new PropertyDetailsDto(
+                                    p.getName(),
+                                    p.getDetail(),
+                                    p.getCategory(),
+                                    p.getStatus(),
+                                    p.isActive(),
+                                    p.getLocation().getAddress(),
+                                    p.getLocation().getLatitude(),
+                                    p.getLocation().getLongitude(),
+                                    images)
+                    );
+                }
+        );
+        return propertyDetailsDtoList;
     }
 }
