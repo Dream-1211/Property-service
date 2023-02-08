@@ -4,6 +4,7 @@ import com.coderboost.propertyservice.dto.response.OwnerDetailsDto;
 import com.coderboost.propertyservice.dto.response.OwnerDto;
 import com.coderboost.propertyservice.service.OwnerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,7 @@ public class OwnerController {
         this.ownerService = ownerService;
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping
     public List<OwnerDto> getAllOwners(){
         return ownerService.getAllOwners();
@@ -31,7 +33,5 @@ public class OwnerController {
     public OwnerDetailsDto getOwnerDetails(@PathVariable long id){
         return ownerService.getOwnerDetailsById(id);
     }
-
-
 
 }
