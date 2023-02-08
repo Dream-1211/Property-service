@@ -22,6 +22,7 @@ public class PropertyMapper {
                 .category(propertyCreateDto.getCategory())
                 .status(propertyCreateDto.getStatus())
                 .isActive(propertyCreateDto.isActive())
+                .price(propertyCreateDto.getPrice())
                 .images(toPropertyImageEntityList(propertyCreateDto.getImages()));
     }
 
@@ -46,6 +47,7 @@ public class PropertyMapper {
                                     p.getCategory(),
                                     p.getStatus(),
                                     p.isActive(),
+                                    p.getPrice(),
                                     p.getLocation().getAddress(),
                                     p.getLocation().getLatitude(),
                                     p.getLocation().getLongitude(),

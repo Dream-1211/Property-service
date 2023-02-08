@@ -20,7 +20,6 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
@@ -51,6 +50,8 @@ public class Property {
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
     PropertyStatus status = PropertyStatus.UNAVAILABLE;
+
+    double price;
 
     boolean isActive = false;
     @ManyToOne

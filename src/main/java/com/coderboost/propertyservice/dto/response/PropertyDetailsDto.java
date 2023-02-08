@@ -20,6 +20,7 @@ public class PropertyDetailsDto {
     PropertyCategory category;
     PropertyStatus status;
     boolean isActive;
+    double price;
     String address;
     String latitude;
     String longitude;

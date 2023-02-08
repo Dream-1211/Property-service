@@ -44,12 +44,10 @@ public class OwnerMapper {
         for (Property property : owner.getProperty()) {
 
             List<PropertyImagesDto> imagesDtos = property.getImages().size() > 0 ?
-                    property.getImages().stream().map(propImg -> {
-                        return new PropertyImagesDto(propImg.getId(), propImg.getName(), propImg.getType(), propImg.getData());
-                    }).collect(Collectors.toList()) : new ArrayList<>();
+                    property.getImages().stream().map(propImg -> new PropertyImagesDto(propImg.getId(), propImg.getName(), propImg.getType(), propImg.getData())).collect(Collectors.toList()) : new ArrayList<>();
 
             properties.add(new PropertyDetailsDto(property.getName(), property.getDetail(), property.getCategory(), property.getStatus(),
-                    property.isActive(), property.getLocation().getAddress(), property.getLocation().getLatitude(), property.getLocation().getLongitude(), imagesDtos));
+                    property.isActive(), property.getPrice(), property.getLocation().getAddress(), property.getLocation().getLatitude(), property.getLocation().getLongitude(), imagesDtos));
         }
 
         return new OwnerDetailsDto(toDto(owner), new PropertyDto(properties));
@@ -69,6 +67,7 @@ public class OwnerMapper {
                             .location(new PropertyLocation(property.getAddress(), property.getLatitude(), property.getLongitude()))
                             .detail(property.getDetail())
                             .category(property.getCategory())
+                            .price(property.getPrice())
                             .images(images)
                             .build()
             );

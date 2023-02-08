@@ -15,6 +15,7 @@ public class PropertyCreateDto {
     PropertyCategory category;
     PropertyStatus status;
     boolean isActive;
+    double price;
     long ownerId;
     String address;
     String latitude;
