@@ -46,10 +46,12 @@ VALUES
     (1005, 'Ocean View', '5 BHK villa with ocean view and private beach', 'RESIDENTIAL', 'CONTINGENT',true, 1002, 1005);
 
 -- CustomerOffer table
-INSERT INTO customer_offers (id, customer_id, property_id, owner_id, amount)
+INSERT INTO property_offers (id, customer_id, property_id, owner_id, amount)
 VALUES
     (1001, 1001, 1001,1001, 100000),
-    (1002, 1002, 1002,1002, 200000);
+    (1003, 1001, 1003,1001, 180000),
+    (1002, 1002, 1002,1002, 200000),
+    (1004, 1002, 1001,1001, 200000);
 
 -- Property Image
 

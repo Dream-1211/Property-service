@@ -4,6 +4,9 @@ import com.coderboost.propertyservice.dto.CustomerDto;
 import com.coderboost.propertyservice.entity.Address;
 import com.coderboost.propertyservice.entity.Customer;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class CustomerMapper {
 
@@ -17,4 +20,13 @@ public class CustomerMapper {
         Address address = new Address(customerDto.getId(), customerDto.getStreet(), customerDto.getZipCode(), customerDto.getState(), customerDto.getLatitude(), customerDto.getLongitude());
         return new Customer(customerDto.getName(), customerDto.getUserId(), address);
     }
+
+    public static List<CustomerDto> toListDto(List<Customer> customerList) {
+        List<CustomerDto> customerDtos = new ArrayList<>();
+        for (Customer customer : customerList) {
+            customerDtos.add(toDto(customer));
+        }
+        return customerDtos;
+    }
+
 }

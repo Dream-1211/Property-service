@@ -43,4 +43,8 @@ public class Owner {
     @OneToMany(mappedBy = "owner", cascade = CascadeType.REMOVE)
     List<Property> property;
 
+    @OneToMany(mappedBy = "owner")
+    List<PropertyOffers> offers;
+
+
 }

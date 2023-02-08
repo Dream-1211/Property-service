@@ -15,11 +15,11 @@ import lombok.NoArgsConstructor;
 import java.time.Instant;
 
 @Entity
-@Table(name = "customer_offers")
+@Table(name = "property_offers")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CustomerOffer {
+public class PropertyOffers {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
@@ -28,7 +28,7 @@ public class CustomerOffer {
     @JoinColumn(name = "customer_id")
     Customer customer;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "owner_id")
     Owner owner;
 

@@ -1,13 +1,17 @@
 package com.coderboost.propertyservice.service.Impl;
 
 import com.coderboost.propertyservice.dto.CustomerDto;
+import com.coderboost.propertyservice.dto.response.PropertyOfferDto;
 import com.coderboost.propertyservice.entity.Customer;
+import com.coderboost.propertyservice.entity.PropertyOffers;
 import com.coderboost.propertyservice.mapper.CustomerMapper;
+import com.coderboost.propertyservice.mapper.PropertyOfferMapper;
 import com.coderboost.propertyservice.repo.CustomerRepo;
 import com.coderboost.propertyservice.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -35,5 +39,17 @@ public class CustomerServiceImpl implements CustomerService {
     public CustomerDto getCustomerByUserId(long userId) {
         Optional<Customer> customer = customerRepo.findByUserId(userId);
         return customer.isPresent() ? CustomerMapper.toDto(customer.get()) : new CustomerDto();
+    }
+
+    @Override
+    public List<CustomerDto> getAllCustomers() {
+        List<Customer> customers = customerRepo.findAll();
+        return CustomerMapper.toListDto(customers);
+    }
+
+    @Override
+    public List<PropertyOfferDto> getCustomerOffers(long id) {
+        List<PropertyOffers> propertyOffer = customerRepo.findPropertyOffersById(id);
+        return PropertyOfferMapper.toListDto(propertyOffer);
     }
 }

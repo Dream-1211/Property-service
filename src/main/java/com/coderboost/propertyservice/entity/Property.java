@@ -37,9 +37,7 @@ public class Property {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "location_id")
     PropertyLocation location;
-
     String detail;
-
     @Column(name = "category")
     @Enumerated(EnumType.STRING)
     PropertyCategory category;
