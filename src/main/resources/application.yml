@@ -3,7 +3,7 @@ spring:
     name: real-estate
   datasource:
     password: coderBoost++
-    url: jdbc:postgresql://localhost:5432/real_estate_db
+    url: jdbc:postgresql://localhost:5432/postgres
     username: coderBoost++
   jpa:
     hibernate:

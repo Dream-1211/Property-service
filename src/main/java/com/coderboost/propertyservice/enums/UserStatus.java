@@ -9,3 +9,4 @@ public enum UserStatus {
         return this == ACTIVE;
     }
 }
+

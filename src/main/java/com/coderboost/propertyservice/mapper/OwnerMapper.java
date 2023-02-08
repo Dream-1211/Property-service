@@ -19,7 +19,7 @@ public class OwnerMapper {
 
         List<OwnerDto> ownerDtoList = new ArrayList<>();
         for (Owner owner : owners) {
-            ownerDtoList.add(new OwnerDto(owner.getName(), owner.getUserId(), owner.getAddress().getStreet(),
+            ownerDtoList.add(new OwnerDto(owner.getId(), owner.getName(), owner.getUserId(), owner.getAddress().getStreet(),
                     owner.getAddress().getZipCode(), owner.getAddress().getState(), owner.getAddress().getLongitude(),
                     owner.getAddress().getLatitude(), owner.getStatus()));
         }
@@ -28,7 +28,7 @@ public class OwnerMapper {
     }
 
     public static OwnerDto toDto(Owner owner) {
-        return new OwnerDto(owner.getName(), owner.getUserId(), owner.getAddress().getStreet(),
+        return new OwnerDto(owner.getId(),owner.getName(), owner.getUserId(), owner.getAddress().getStreet(),
                 owner.getAddress().getZipCode(), owner.getAddress().getState(), owner.getAddress().getLongitude(),
                 owner.getAddress().getLatitude(), owner.getStatus());
     }

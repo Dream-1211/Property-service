@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @Getter
 public class OwnerDto {
 
+    long id;
     String name;
     long userId;
     String street;

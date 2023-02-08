@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 public class CustomerDto {
+
+    long id;
     String name;
     long userId;
     String street;

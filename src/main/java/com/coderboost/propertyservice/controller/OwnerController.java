@@ -1,5 +1,6 @@
 package com.coderboost.propertyservice.controller;
 
+import com.coderboost.propertyservice.dto.request.ReviewOwnerDto;
 import com.coderboost.propertyservice.dto.response.OwnerDetailsDto;
 import com.coderboost.propertyservice.dto.response.OwnerDto;
 import com.coderboost.propertyservice.service.OwnerService;
@@ -7,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,13 +28,20 @@ public class OwnerController {
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping
-    public List<OwnerDto> getAllOwners(){
+    public List<OwnerDto> getAllOwners() {
         return ownerService.getAllOwners();
     }
 
+
     @GetMapping("/{id}")
-    public OwnerDetailsDto getOwnerDetails(@PathVariable long id){
+    public OwnerDetailsDto getOwnerDetails(@PathVariable long id) {
         return ownerService.getOwnerDetailsById(id);
     }
 
+    @PutMapping()
+    public void updateOwnerStatus(@RequestBody ReviewOwnerDto reviewOwnerDto) {
+        ownerService.updateOwnerStatus(reviewOwnerDto.getId(), reviewOwnerDto.getStatus());
+    }
+
 }
+
