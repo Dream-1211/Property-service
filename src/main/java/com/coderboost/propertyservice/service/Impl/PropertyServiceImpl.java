@@ -49,4 +49,11 @@ public class PropertyServiceImpl implements PropertyService {
         List<Property> properties = propertyRepo.findAll();
         return toPropertyDetailDto(properties);
     }
+
+    @Override
+    public void deleteProperty(long propertyId) {
+        Property property = propertyRepo.findById(propertyId).orElseThrow(() -> new RuntimeException("Property doesn't exist"));
+        property.setActive(false);
+        propertyRepo.save(property);
+    }
 }

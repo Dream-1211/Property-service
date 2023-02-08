@@ -5,6 +5,7 @@ import com.coderboost.propertyservice.dto.response.PropertyDetailsDto;
 import com.coderboost.propertyservice.enums.PropertyStatus;
 import com.coderboost.propertyservice.service.PropertyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,5 +39,10 @@ public class PropertyController {
     @PutMapping("/{id}")
     public void updatePropertyStatus(@PathVariable long id, @RequestBody PropertyStatus propertyStatus) {
         propertyService.updatePropertyStatus(id, propertyStatus);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteProperty(@PathVariable long id) {
+        propertyService.deleteProperty(id);
     }
 }

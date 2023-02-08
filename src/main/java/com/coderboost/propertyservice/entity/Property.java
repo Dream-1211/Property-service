@@ -35,11 +35,15 @@ public class Property {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
+
     String name;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "location_id")
     PropertyLocation location;
+
     String detail;
+
     @Column(name = "category")
     @Enumerated(EnumType.STRING)
     PropertyCategory category;
@@ -47,6 +51,7 @@ public class Property {
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
     PropertyStatus status = PropertyStatus.UNAVAILABLE;
+
     boolean isActive = false;
     @ManyToOne
     @JoinColumn(name = "owner_id")

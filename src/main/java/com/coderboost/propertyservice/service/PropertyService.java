@@ -13,4 +13,6 @@ public interface PropertyService {
     void updatePropertyStatus(long propertyId, PropertyStatus propertyStatus);
 
     List<PropertyDetailsDto> fetchProperties();
+
+    void deleteProperty(long propertyId);
 }
