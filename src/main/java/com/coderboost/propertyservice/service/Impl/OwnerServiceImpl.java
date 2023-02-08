@@ -5,7 +5,7 @@ import com.coderboost.propertyservice.dto.response.OwnerDetailsDto;
 import com.coderboost.propertyservice.dto.response.OwnerDto;
 import com.coderboost.propertyservice.dto.response.PropertyOfferDto;
 import com.coderboost.propertyservice.entity.Owner;
-import com.coderboost.propertyservice.entity.PropertyOffers;
+import com.coderboost.propertyservice.entity.PropertyOffer;
 import com.coderboost.propertyservice.enums.UserStatus;
 import com.coderboost.propertyservice.exceptions.UserNotFoundException;
 import com.coderboost.propertyservice.mapper.OwnerMapper;
@@ -70,7 +70,7 @@ public class OwnerServiceImpl implements OwnerService {
     @Override
     public List<PropertyOfferDto> getOwnerPropertyAllOffers(long id, long pid) {
 
-        List<PropertyOffers> propertyOffer = propertyOfferRepo.findByOwnerIdAndPropertyId(id,pid);
+        List<PropertyOffer> propertyOffer = propertyOfferRepo.findByOwnerIdAndPropertyId(id,pid);
         return PropertyOfferMapper.toListDto(propertyOffer);
 
     }

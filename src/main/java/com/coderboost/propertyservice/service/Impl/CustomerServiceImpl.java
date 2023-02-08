@@ -3,7 +3,7 @@ package com.coderboost.propertyservice.service.Impl;
 import com.coderboost.propertyservice.dto.CustomerDto;
 import com.coderboost.propertyservice.dto.response.PropertyOfferDto;
 import com.coderboost.propertyservice.entity.Customer;
-import com.coderboost.propertyservice.entity.PropertyOffers;
+import com.coderboost.propertyservice.entity.PropertyOffer;
 import com.coderboost.propertyservice.exceptions.UserNotFoundException;
 import com.coderboost.propertyservice.mapper.CustomerMapper;
 import com.coderboost.propertyservice.mapper.PropertyOfferMapper;
@@ -52,7 +52,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<PropertyOfferDto> getCustomerOffers(long id) {
-        List<PropertyOffers> propertyOffer = customerRepo.findPropertyOffersById(id);
+        List<PropertyOffer> propertyOffer = customerRepo.findPropertyOffersById(id);
         return PropertyOfferMapper.toListDto(propertyOffer);
     }
 }

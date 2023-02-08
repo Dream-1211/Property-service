@@ -1,5 +1,6 @@
 package com.coderboost.propertyservice.dto.response;
 
+import com.coderboost.propertyservice.enums.OfferStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -16,7 +17,7 @@ public class PropertyOfferDto {
     String propertyName;
 
     String propertyDetails;
-    String status;
+    OfferStatus status;
     String ownerName;
 
     long ownerUserId;

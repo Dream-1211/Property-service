@@ -39,7 +39,7 @@ public class PropertyServiceImpl implements PropertyService {
 
     @Override
     public void updatePropertyStatus(long propertyId, PropertyStatus propertyStatus) {
-        Property property = propertyRepo.findById(propertyId).orElseThrow(() -> new RuntimeException("Property doesn't exists"));
+        Property property = propertyRepo.findById(propertyId).orElseThrow(() -> new RuntimeException("Property doesn't exist"));
         property.setStatus(propertyStatus);
         propertyRepo.save(property);
     }

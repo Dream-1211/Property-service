@@ -39,7 +39,7 @@ public class Customer {
     @Enumerated(EnumType.STRING)
     UserStatus status = UserStatus.ACTIVE;
     @OneToMany(mappedBy = "customer")
-    List<PropertyOffers> offer;
+    List<PropertyOffer> offer;
 
     public Customer(String name, long userId, Address address) {
         this.name = name;

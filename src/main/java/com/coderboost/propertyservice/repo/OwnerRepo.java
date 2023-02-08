@@ -1,10 +1,8 @@
 package com.coderboost.propertyservice.repo;
 
 import com.coderboost.propertyservice.entity.Owner;
-import com.coderboost.propertyservice.entity.PropertyOffers;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 import java.util.Optional;
