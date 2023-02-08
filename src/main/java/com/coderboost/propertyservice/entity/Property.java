@@ -1,6 +1,7 @@
 package com.coderboost.propertyservice.entity;
 
 
+import com.coderboost.propertyservice.enums.PropertyCategory;
 import com.coderboost.propertyservice.enums.PropertyStatus;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -38,7 +39,10 @@ public class Property {
     PropertyLocation location;
 
     String detail;
-    String category;
+
+    @Column(name = "category")
+    @Enumerated(EnumType.STRING)
+    PropertyCategory category;
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
     PropertyStatus status;

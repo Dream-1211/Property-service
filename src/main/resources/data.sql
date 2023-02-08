@@ -41,9 +41,9 @@ VALUES
 
 INSERT INTO property (id, name, detail, category, status, is_active, owner_id, location_id)
 VALUES
-    (1003, 'Villa Rica', '3 BHK independent house with lawn and pool', 'Residential', 'PENDING', false, 1001, 1003),
-    (1004, 'Palm Plaza', '4 BHK duplex apartment with garden and gym', 'Commercial', 'AVAILABLE', true,  1002, 1004),
-    (1005, 'Ocean View', '5 BHK villa with ocean view and private beach', 'Residential', 'CONTINGENT',true, 1002, 1005);
+    (1003, 'Villa Rica', '3 BHK independent house with lawn and pool', 'RESIDENTIAL', 'PENDING', false, 1001, 1003),
+    (1004, 'Palm Plaza', '4 BHK duplex apartment with garden and gym', 'COMMERCIAL', 'AVAILABLE', true,  1002, 1004),
+    (1005, 'Ocean View', '5 BHK villa with ocean view and private beach', 'RESIDENTIAL', 'CONTINGENT',true, 1002, 1005);
 
 -- CustomerOffer table
 INSERT INTO customer_offers (id, customer_id, property_id, owner_id, amount)

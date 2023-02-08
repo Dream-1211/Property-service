@@ -1,5 +1,6 @@
 package com.coderboost.propertyservice.controller;
 
+import com.coderboost.propertyservice.dto.response.OwnerDetailsDto;
 import com.coderboost.propertyservice.dto.response.OwnerDto;
 import com.coderboost.propertyservice.service.OwnerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +28,8 @@ public class OwnerController {
     }
 
     @GetMapping("/{id}")
-    public List<OwnerDto> getOwnerDetails(@PathVariable long id){
-        return ownerService.getAllOwners();
+    public OwnerDetailsDto getOwnerDetails(@PathVariable long id){
+        return ownerService.getOwnerDetailsById(id);
     }
 
 
