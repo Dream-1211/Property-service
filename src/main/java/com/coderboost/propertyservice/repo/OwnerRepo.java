@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface OwnerRepo extends JpaRepository<Owner, Long> {
     @Query("SELECT o FROM Owner o ORDER BY o.status DESC")
-    List<Owner> findAllOwnersORDERByStatusDesc();
+    List<Owner> findAllOwnersOrderByStatusDesc();
 
 }

@@ -24,7 +24,7 @@ public class OwnerServiceImpl implements OwnerService {
 
     @Override
     public List<OwnerDto> getAllOwners() {
-        List<Owner> ownerList = ownerRepo.findAllOwnersORDERByStatusDesc();
+        List<Owner> ownerList = ownerRepo.findAllOwnersOrderByStatusDesc();
         return OwnerMapper.toListDto(ownerList);
     }
 
