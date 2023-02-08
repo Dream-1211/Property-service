@@ -1,7 +1,6 @@
 package com.coderboost.propertyservice.enums;
 
 public enum PropertyStatus {
-
     UNAVAILABLE,
     AVAILABLE,
     PENDING,

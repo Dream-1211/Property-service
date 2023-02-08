@@ -10,11 +10,6 @@ VALUES
     (1001, 'John Doe', 1001, 1001, 'ACTIVE'),
     (1002, 'Jane Doe', 1002, 1002, 'INACTIVE');
 
-
-
-
-
-
 -- PropertyLocation table
 INSERT INTO property_location (id, address, latitude, longitude)
 VALUES
@@ -23,8 +18,6 @@ VALUES
     (1003, '789 Broadway Chicago', 'IL''40.748817', '-73.985428'),
     (1004, '789 Broadway Chicago', 'IL''40.748817', '-73.985428'),
     (1005, '789 Broadway Chicago', 'IL''40.748817', '-73.985428');
-
-
 
 -- Customer table
 INSERT INTO Customer (id, name, status,  address_id, user_id)

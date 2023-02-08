@@ -61,12 +61,17 @@ public class OwnerMapper {
         for (PropertyDetailsDto property : ownerDto.getPropertyDto().getProperties()) {
 
             List<PropertyImage> images = property.getImages().size() > 0 ?
-                    property.getImages().stream().map(propImg -> {
-                        return new PropertyImage(propImg.getId(), propImg.getName(), propImg.getType(), propImg.getData());
-                    }).collect(Collectors.toList()) : new ArrayList<>();
+                    property.getImages().stream().map(propImg -> new PropertyImage(propImg.getId(), propImg.getName(), propImg.getType(), propImg.getData())).collect(Collectors.toList()) : new ArrayList<>();
 
-            properties.add(new Property(property.getName(), new PropertyLocation(property.getAddress(), property.getLatitude(), property.getLongitude()),
-                    property.getDetail(), property.getCategory(), images));
+            properties.add(
+                    Property.builder()
+                            .name(property.getName())
+                            .location(new PropertyLocation(property.getAddress(), property.getLatitude(), property.getLongitude()))
+                            .detail(property.getDetail())
+                            .category(property.getCategory())
+                            .images(images)
+                            .build()
+            );
         }
         return new Owner(ownerDto.getName(), ownerDto.getUserId(), new Address(ownerDto.getStreet(), ownerDto.getZipCode(), ownerDto.getState(), ownerDto.getLatitude(),
                 ownerDto.getLongitude()), properties);

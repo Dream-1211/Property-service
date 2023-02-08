@@ -18,18 +18,19 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Entity
 @Table(name = "property")
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Builder
 public class Property {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
@@ -41,6 +42,7 @@ public class Property {
     @Column(name = "category")
     @Enumerated(EnumType.STRING)
     PropertyCategory category;
+
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
     PropertyStatus status = PropertyStatus.UNAVAILABLE;
@@ -52,15 +54,4 @@ public class Property {
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.REMOVE, CascadeType.PERSIST})
     @JoinColumn(name = "property_id")
     List<PropertyImage> images;
-
-
-    public Property(String name, PropertyLocation propertyLocation, String detail, PropertyCategory category,
-                    List<PropertyImage> images) {
-
-        this.name = name;
-        this.location = propertyLocation;
-        this.detail = detail;
-        this.category = category;
-        this.images = images;
-    }
 }

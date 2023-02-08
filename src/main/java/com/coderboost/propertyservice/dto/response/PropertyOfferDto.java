@@ -1,11 +1,5 @@
 package com.coderboost.propertyservice.dto.response;
 
-import com.coderboost.propertyservice.entity.Customer;
-import com.coderboost.propertyservice.entity.Owner;
-import com.coderboost.propertyservice.entity.Property;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -18,7 +12,6 @@ import java.time.Instant;
 @NoArgsConstructor
 @Getter
 public class PropertyOfferDto {
-
     long id;
     String propertyName;
 

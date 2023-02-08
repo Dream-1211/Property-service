@@ -5,6 +5,4 @@ public enum PropertyCategory {
     APARTMENT,
     RESIDENTIAL,
     COMMERCIAL;
-
-
 }
