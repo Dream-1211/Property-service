@@ -15,6 +15,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -25,6 +26,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Owner {
 
     @Id
@@ -35,6 +37,7 @@ public class Owner {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
     Address address;
+
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
     UserStatus status = UserStatus.INACTIVE;
@@ -44,12 +47,4 @@ public class Owner {
 
     @OneToMany(mappedBy = "owner")
     List<PropertyOffer> offers;
-
-
-    public Owner(String name, long userId, Address address, List<Property> properties) {
-        this.name = name;
-        this.userId = userId;
-        this.address = address;
-        this.property = properties;
-    }
 }

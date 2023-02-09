@@ -10,13 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 public class CustomerDto {
-
     long id;
     String name;
     long userId;
-    String street;
-    String zipCode;
-    String state;
-    String latitude;
-    String longitude;
 }

@@ -5,6 +5,7 @@ import com.coderboost.propertyservice.dto.response.PropertyDetailsDto;
 import com.coderboost.propertyservice.enums.PropertyStatus;
 import com.coderboost.propertyservice.service.PropertyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/properties")
+@CrossOrigin(origins = {"http://localhost:3000"})
 public class PropertyController {
     private final PropertyService propertyService;
 

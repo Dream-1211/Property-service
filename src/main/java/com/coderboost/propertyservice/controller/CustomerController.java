@@ -4,6 +4,7 @@ import com.coderboost.propertyservice.dto.CustomerDto;
 import com.coderboost.propertyservice.dto.response.PropertyOfferDto;
 import com.coderboost.propertyservice.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,8 +16,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/customers")
+@CrossOrigin(origins = {"http://localhost:3000"})
 public class CustomerController {
-
 
     private final CustomerService customerService;
 

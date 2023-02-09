@@ -1,41 +1,38 @@
-
 -- Address
-INSERT INTO address (id, street, zip_code, state, latitude, longitude)
-VALUES
-    (1001, '123 Main St', '12345', 'NY', '40.748817', '-73.985428'),
-    (1002, '456 Elm St', '67890', 'CA', '37.7749', '-122.4194');
+INSERT INTO address (id, street, zip_code, state)
+VALUES (1001, '123 Main St', '12345', 'NY'),
+       (1002, '456 Elm St', '67890', 'CA');
 -- Owner
 INSERT INTO owner (id, name, user_id, address_id, status)
-VALUES
-    (1001, 'John Doe', 1001, 1001, 'ACTIVE'),
-    (1002, 'Jane Doe', 1002, 1002, 'INACTIVE');
+VALUES (1001, 'John Doe', 1001, 1001, 'ACTIVE'),
+       (1002, 'Jane Doe', 1002, 1002, 'INACTIVE');
 
 -- PropertyLocation table
 INSERT INTO property_location (id, address, latitude, longitude)
-VALUES
-    (1001, '123 Main St New York', '40.748817', '-73.985428'),
-    (1002, '456 Park Ave Los Angeles', '40.748817', '-73.985428'),
-    (1003, '789 Broadway Chicago', 'IL''40.748817', '-73.985428'),
-    (1004, '789 Broadway Chicago', 'IL''40.748817', '-73.985428'),
-    (1005, '789 Broadway Chicago', 'IL''40.748817', '-73.985428');
+VALUES (1001, '123 Main St New York', '40.748817', '-73.985428'),
+       (1002, '456 Park Ave Los Angeles', '40.748817', '-73.985428'),
+       (1003, '789 Broadway Chicago', 'IL''40.748817', '-73.985428'),
+       (1004, '789 Broadway Chicago', 'IL''40.748817', '-73.985428'),
+       (1005, '789 Broadway Chicago', 'IL''40.748817', '-73.985428');
 
 -- Customer table
-INSERT INTO Customer (id, name, status,  address_id, user_id)
-VALUES
-    (1001, 'John Doe', 'ACTIVE', 1001, 1001),
-    (1002, 'Jane Doe', 'ACTIVE',1002, 1002);
+INSERT INTO Customer (id, name, status, user_id)
+VALUES (1001, 'John Doe', 'ACTIVE', 1001),
+       (1002, 'Jane Doe', 'ACTIVE', 1002);
 
 -- Property
 INSERT INTO property (id, name, location_id, detail, category, status, is_active, price, owner_id)
-VALUES
-    (1001, 'My House', 1001, 'My first property', 'HOUSE', 'AVAILABLE', true, 14477.0, 1001),
-    (1002, 'My Apartment', 1002, 'My second property', 'APARTMENT', 'AVAILABLE', false, 23345.0, 1002);
+VALUES (1001, 'My House', 1001, 'My first property', 'HOUSE', 'AVAILABLE', true, 14477.0, 1001),
+       (1002, 'My Apartment', 1002, 'My second property', 'APARTMENT', 'AVAILABLE', false, 23345.0, 1002);
 
 
 INSERT INTO property (id, name, detail, category, status, is_active, price, owner_id, location_id)
-VALUES (1003, 'Villa Rica', '3 BHK independent house with lawn and pool', 'RESIDENTIAL', 'PENDING', false, 12000.0, 1001, 1003),
-       (1004, 'Palm Plaza', '4 BHK duplex apartment with garden and gym', 'COMMERCIAL', 'AVAILABLE', true, 100000.0, 1002 , 1004),
-       (1005, 'Ocean View', '5 BHK villa with ocean view and private beach', 'RESIDENTIAL', 'CONTINGENT', true, 23400.56, 1002,
+VALUES (1003, 'Villa Rica', '3 BHK independent house with lawn and pool', 'RESIDENTIAL', 'PENDING', false, 12000.0,
+        1001, 1003),
+       (1004, 'Palm Plaza', '4 BHK duplex apartment with garden and gym', 'COMMERCIAL', 'AVAILABLE', true, 100000.0,
+        1002, 1004),
+       (1005, 'Ocean View', '5 BHK villa with ocean view and private beach', 'RESIDENTIAL', 'CONTINGENT', true,
+        23400.56, 1002,
         1005);
 
 -- CustomerOffer table

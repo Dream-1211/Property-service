@@ -77,7 +77,10 @@ public class OwnerServiceImpl implements OwnerService {
 
     @Override
     public void saveOwner(NewOwnerDto ownerDto) {
-        Owner owner = OwnerMapper.toNewOwnerEntity(ownerDto);
-        ownerRepo.save(owner);
+        Optional<Owner> owner = ownerRepo.findByUserId(ownerDto.getUserId());
+        if (owner.isEmpty()) {
+            Owner newOwner = OwnerMapper.toNewOwnerEntity(ownerDto);
+            ownerRepo.save(newOwner);
+        } else throw new RuntimeException("User mapping already exists with owner");
     }
 }

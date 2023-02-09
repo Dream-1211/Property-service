@@ -29,7 +29,7 @@ public class CustomerServiceImpl implements CustomerService {
     public void saveCustomer(CustomerDto newCustomerDto) {
 
         Optional<Customer> customer = customerRepo.findByUserId(newCustomerDto.getUserId());
-        if (!customer.isPresent()) {
+        if (customer.isEmpty()) {
             Customer newCustomer = CustomerMapper.toEntity(newCustomerDto);
             customerRepo.save(newCustomer);
         } else
