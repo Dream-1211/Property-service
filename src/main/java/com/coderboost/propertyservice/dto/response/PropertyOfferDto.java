@@ -15,17 +15,13 @@ import java.time.Instant;
 public class PropertyOfferDto {
     long id;
     String propertyName;
-
     String propertyDetails;
     OfferStatus status;
     String ownerName;
-
     long ownerUserId;
     Instant createdAt;
     Instant updatedAt;
     double amount;
-
     String customerName;
-
     long customerUserId;
 }

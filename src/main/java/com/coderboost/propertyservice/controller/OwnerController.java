@@ -38,6 +38,7 @@ public class OwnerController {
     }
 
 
+    @PreAuthorize("hasAuthority('OWNER')")
     @GetMapping("/{id}")
     public OwnerDetailsDto getOwnerDetails(@PathVariable long id) {
         return ownerService.getOwnerDetailsById(id);
@@ -48,6 +49,7 @@ public class OwnerController {
         ownerService.updateOwnerStatus(reviewOwnerDto.getId(), reviewOwnerDto.getStatus());
     }
 
+    @PreAuthorize("hasAuthority('OWNER')")
     @GetMapping("/userid/{userId}")
     public OwnerDto getOwnerByUserId(@PathVariable long userId) {
         return ownerService.getOwnerByUserId(userId);

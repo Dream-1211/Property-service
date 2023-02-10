@@ -36,12 +36,33 @@ public class PropertyMapper {
         ).toList();
     }
 
-    public static List<PropertyDetailsDto> toPropertyDetailDto(List<Property> properties) {
+    private static List<PropertyImagesDto> toPropertyImageRequestDtoList(List<PropertyImage> images) {
+        return images.stream().map(propImg -> new PropertyImagesDto(propImg.getId(), propImg.getName(), propImg.getType(), propImg.getData())).toList();
+    }
+
+    public static PropertyDetailsDto toPropertyDetailDto(Property property) {
+        return new PropertyDetailsDto(
+                property.getId(),
+                property.getName(),
+                property.getDetail(),
+                property.getCategory(),
+                property.getStatus(),
+                property.isActive(),
+                property.getPrice(),
+                property.getLocation().getAddress(),
+                property.getLocation().getLatitude(),
+                property.getLocation().getLongitude(),
+                toPropertyImageRequestDtoList(property.getImages())
+        );
+    }
+
+    public static List<PropertyDetailsDto> toPropertyDetailDtoList(List<Property> properties) {
         List<PropertyDetailsDto> propertyDetailsDtoList = new ArrayList<>();
         properties.forEach(p -> {
-                    List<PropertyImagesDto> images = p.getImages().stream().map(propImg -> new PropertyImagesDto(propImg.getId(), propImg.getName(), propImg.getType(), propImg.getData())).toList();
+                    List<PropertyImagesDto> images = toPropertyImageRequestDtoList(p.getImages());
                     propertyDetailsDtoList.add(
                             new PropertyDetailsDto(
+                                    p.getId(),
                                     p.getName(),
                                     p.getDetail(),
                                     p.getCategory(),
