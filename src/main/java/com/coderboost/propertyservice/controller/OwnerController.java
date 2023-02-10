@@ -49,8 +49,6 @@ public class OwnerController {
     @PreAuthorize("hasAuthority('ADMIN')")
     @PutMapping()
     public void updateOwnerStatus(@RequestBody ReviewOwnerDto reviewOwnerDto) {
-
-        System.out.println("STATUS"+reviewOwnerDto);
         ownerService.updateOwnerStatus(reviewOwnerDto.getId(), reviewOwnerDto.getStatus());
     }
 
