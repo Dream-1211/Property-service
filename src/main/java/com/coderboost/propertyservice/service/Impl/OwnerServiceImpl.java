@@ -39,11 +39,12 @@ public class OwnerServiceImpl implements OwnerService {
 
     @Override
     public OwnerDetailsDto getOwnerDetailsById(long id) {
+        System.out.println("GETOWNER");
         Optional<Owner> owner = ownerRepo.findById(id);
         if (owner.isPresent()) {
             return OwnerMapper.toOwnerDetailsDto(owner.get());
         }
-        else throw new UserNotFoundException("Owner with ID "+id+" does not exist.");
+        else throw new RuntimeException("Owner with ID "+id+" does not exist.");
     }
 
     @Override

@@ -38,13 +38,19 @@ public class OwnerController {
     }
 
 
+
+    @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/{id}")
     public OwnerDetailsDto getOwnerDetails(@PathVariable long id) {
         return ownerService.getOwnerDetailsById(id);
     }
 
+
+    @PreAuthorize("hasAuthority('ADMIN')")
     @PutMapping()
     public void updateOwnerStatus(@RequestBody ReviewOwnerDto reviewOwnerDto) {
+
+        System.out.println("STATUS"+reviewOwnerDto);
         ownerService.updateOwnerStatus(reviewOwnerDto.getId(), reviewOwnerDto.getStatus());
     }
 
