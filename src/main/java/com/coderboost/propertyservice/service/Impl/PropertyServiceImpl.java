@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 import static com.coderboost.propertyservice.mapper.PropertyMapper.toPropertyDetailDto;
+import static com.coderboost.propertyservice.mapper.PropertyMapper.toPropertyDetailDtoList;
 import static com.coderboost.propertyservice.mapper.PropertyMapper.toPropertyEntityBuilder;
 
 @Service
@@ -46,8 +47,14 @@ public class PropertyServiceImpl implements PropertyService {
 
     @Override
     public List<PropertyDetailsDto> fetchProperties() {
-        List<Property> properties = propertyRepo.findAll();
-        return toPropertyDetailDto(properties);
+        List<Property> properties = propertyRepo.findAllByIsActive(true);
+        return toPropertyDetailDtoList(properties);
+    }
+
+    @Override
+    public PropertyDetailsDto fetchPropertyById(long propertyId) {
+        Property property = propertyRepo.findByIdAndIsActive(propertyId, true).orElseThrow(() -> new RuntimeException("Property doesn't exist!"));
+        return toPropertyDetailDto(property);
     }
 
     @Override

@@ -31,13 +31,14 @@ public class OwnerMapper {
     public static OwnerDetailsDto toOwnerDetailsDto(Owner owner) {
         List<PropertyDetailsDto> properties = new ArrayList<>();
 
-        for (Property property : owner.getProperty()) {
-            List<PropertyImagesDto> imagesDtos = property.getImages().size() > 0 ?
-                    property.getImages().stream().map(propImg -> new PropertyImagesDto(propImg.getId(), propImg.getName(), propImg.getType(), propImg.getData())).collect(Collectors.toList()) : new ArrayList<>();
+        owner.getProperty().stream().filter(Property::isActive).forEach(property -> {
+                    List<PropertyImagesDto> imagesDtos = property.getImages().size() > 0 ?
+                            property.getImages().stream().map(propImg -> new PropertyImagesDto(propImg.getId(), propImg.getName(), propImg.getType(), propImg.getData())).collect(Collectors.toList()) : new ArrayList<>();
 
-            properties.add(new PropertyDetailsDto(property.getName(), property.getDetail(), property.getCategory(), property.getStatus(),
-                    property.isActive(), property.getPrice(), property.getLocation().getAddress(), property.getLocation().getLatitude(), property.getLocation().getLongitude(), imagesDtos));
-        }
+                    properties.add(new PropertyDetailsDto(property.getId(), property.getName(), property.getDetail(), property.getCategory(), property.getStatus(),
+                            property.isActive(), property.getPrice(), property.getLocation().getAddress(), property.getLocation().getLatitude(), property.getLocation().getLongitude(), imagesDtos));
+                }
+        );
 
         return new OwnerDetailsDto(toDto(owner), new PropertyDto(properties));
     }

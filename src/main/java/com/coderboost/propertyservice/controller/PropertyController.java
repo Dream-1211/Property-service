@@ -38,6 +38,11 @@ public class PropertyController {
         return propertyService.fetchProperties();
     }
 
+    @GetMapping("/{id}")
+    public PropertyDetailsDto fetchPropertyById(@PathVariable long id) {
+        return propertyService.fetchPropertyById(id);
+    }
+
     @PutMapping("/{id}")
     public void updatePropertyStatus(@PathVariable long id, @RequestBody PropertyStatus propertyStatus) {
         propertyService.updatePropertyStatus(id, propertyStatus);

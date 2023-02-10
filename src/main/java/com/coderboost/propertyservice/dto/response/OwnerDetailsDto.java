@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 public class OwnerDetailsDto {
-
     OwnerDto ownerDetails;
     PropertyDto propertyDetails;
 

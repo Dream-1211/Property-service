@@ -1,6 +1,5 @@
 package com.coderboost.propertyservice.dto.response;
 
-import com.coderboost.propertyservice.entity.PropertyImage;
 import com.coderboost.propertyservice.enums.PropertyCategory;
 import com.coderboost.propertyservice.enums.PropertyStatus;
 import lombok.AllArgsConstructor;
@@ -15,6 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 public class PropertyDetailsDto {
+    long id;
     String name;
     String detail;
     PropertyCategory category;

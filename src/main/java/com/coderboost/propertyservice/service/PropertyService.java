@@ -14,5 +14,7 @@ public interface PropertyService {
 
     List<PropertyDetailsDto> fetchProperties();
 
+    PropertyDetailsDto fetchPropertyById(long propertyId);
+
     void deleteProperty(long propertyId);
 }
