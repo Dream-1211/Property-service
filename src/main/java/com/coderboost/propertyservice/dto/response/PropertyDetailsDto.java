@@ -25,4 +25,5 @@ public class PropertyDetailsDto {
     String latitude;
     String longitude;
     List<PropertyImagesDto> images;
+    long ownerId;
 }

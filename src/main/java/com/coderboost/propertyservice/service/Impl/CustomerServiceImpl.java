@@ -52,7 +52,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<PropertyOfferDto> getCustomerOffers(long id) {
-        List<PropertyOffer> propertyOffer = customerRepo.findPropertyOffersById(id);
+        List<PropertyOffer> propertyOffer = customerRepo.findPropertyOffersByUserId(id);
         return PropertyOfferMapper.toListDto(propertyOffer);
     }
 }

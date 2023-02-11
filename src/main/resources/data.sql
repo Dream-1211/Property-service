@@ -17,8 +17,8 @@ VALUES (1001, '123 Main St New York', '40.748817', '-73.985428'),
 
 -- Customer table
 INSERT INTO Customer (id, name, status, user_id)
-VALUES (1001, 'John Doe', 'ACTIVE', 1001),
-       (1002, 'Jane Doe', 'ACTIVE', 1002);
+VALUES (1001, 'Pat Doe', 'ACTIVE', 2),
+       (1002, 'Jack', 'ACTIVE', 3);
 
 -- Property
 INSERT INTO property (id, name, location_id, detail, category, status, is_active, price, owner_id)

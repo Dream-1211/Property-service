@@ -39,7 +39,7 @@ public class OfferServiceImpl implements OfferService {
     public void addNewOffer(OfferCreateDto offerCreateDto) {
         Property property = propertyRepo.findById(offerCreateDto.getPropertyId()).orElseThrow(() -> new RuntimeException("Property doesn't exist"));
         Owner owner = ownerRepo.findById(offerCreateDto.getOwnerId()).orElseThrow(() -> new RuntimeException("Owner doesn't exist"));
-        Customer customer = customerRepo.findById(offerCreateDto.getCustomerId()).orElseThrow(() -> new RuntimeException("Customer doesn't exist"));
+        Customer customer = customerRepo.findByUserId(offerCreateDto.getCustomerId()).orElseThrow(() -> new RuntimeException("Customer doesn't exist"));
 
         PropertyOffer newOffer = toPropertyOffersEntityBuilder(offerCreateDto)
                 .property(property)

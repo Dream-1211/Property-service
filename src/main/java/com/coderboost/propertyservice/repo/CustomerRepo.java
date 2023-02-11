@@ -13,6 +13,6 @@ import java.util.Optional;
 @Repository
 public interface CustomerRepo extends JpaRepository<Customer, Long> {
     Optional<Customer> findByUserId(long userId);
-    @Query("SELECT c.offer FROM Customer c WHERE c.id = :id")
-    List<PropertyOffer> findPropertyOffersById(@Param("id") long id);
+    @Query("SELECT c.offer FROM Customer c WHERE c.userId = :id")
+    List<PropertyOffer> findPropertyOffersByUserId(@Param("id") long id);
 }

@@ -36,7 +36,7 @@ public class OwnerMapper {
                             property.getImages().stream().map(propImg -> new PropertyImagesDto(propImg.getId(), propImg.getName(), propImg.getType(), propImg.getData())).collect(Collectors.toList()) : new ArrayList<>();
 
                     properties.add(new PropertyDetailsDto(property.getId(), property.getName(), property.getDetail(), property.getCategory(), property.getStatus(),
-                            property.isActive(), property.getPrice(), property.getLocation().getAddress(), property.getLocation().getLatitude(), property.getLocation().getLongitude(), imagesDtos));
+                            property.isActive(), property.getPrice(), property.getLocation().getAddress(), property.getLocation().getLatitude(), property.getLocation().getLongitude(), imagesDtos, property.getOwner().getId()));
                 }
         );
 
