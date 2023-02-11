@@ -24,8 +24,8 @@ public class AdminController {
     public AdminController(AdminService adminService) {
         this.adminService = adminService;
     }
-    
-    @PreAuthorize("hasAnyAuthority('ADMIN')")
+
+    @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/dashboard")
     public AdminStatisticsDto getStatistics() {
         return adminService.getCustomerOwnerAndPropertyStatistics();
