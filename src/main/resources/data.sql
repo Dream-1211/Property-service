@@ -5,7 +5,7 @@ VALUES (1001, '123 Main St', '12345', 'NY'),
 -- Owner
 INSERT INTO owner (id, name, user_id, address_id, status)
 VALUES (1001, 'John Doe', 1001, 1001, 'ACTIVE'),
-       (1002, 'Jane Doe', 1002, 1002, 'INACTIVE');
+       (1002, 'Jane David', 1002, 1002, 'INACTIVE');
 
 -- PropertyLocation table
 INSERT INTO property_location (id, address, latitude, longitude)
@@ -17,7 +17,7 @@ VALUES (1001, '123 Main St New York', '40.748817', '-73.985428'),
 
 -- Customer table
 INSERT INTO Customer (id, name, status, user_id)
-VALUES (1001, 'John Doe', 'ACTIVE', 1001),
+VALUES (1001, 'John David', 'ACTIVE', 1001),
        (1002, 'Jane Doe', 'ACTIVE', 1002);
 
 -- Property

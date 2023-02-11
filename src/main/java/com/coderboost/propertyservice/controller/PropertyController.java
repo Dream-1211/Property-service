@@ -5,6 +5,7 @@ import com.coderboost.propertyservice.dto.response.PropertyDetailsDto;
 import com.coderboost.propertyservice.enums.PropertyStatus;
 import com.coderboost.propertyservice.service.PropertyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,6 +29,7 @@ public class PropertyController {
         this.propertyService = propertyService;
     }
 
+    @PreAuthorize("hasAuthority('OWNER')")
     @PostMapping
     public void addNewProperty(@RequestBody PropertyCreateDto propertyCreateDto) {
         propertyService.addProperty(propertyCreateDto);
@@ -38,16 +40,19 @@ public class PropertyController {
         return propertyService.fetchProperties();
     }
 
+    @PreAuthorize("hasAuthority('OWNER')")
     @GetMapping("/{id}")
     public PropertyDetailsDto fetchPropertyById(@PathVariable long id) {
         return propertyService.fetchPropertyById(id);
     }
 
+    @PreAuthorize("hasAuthority('OWNER')")
     @PutMapping("/{id}")
     public void updatePropertyStatus(@PathVariable long id, @RequestBody PropertyStatus propertyStatus) {
         propertyService.updatePropertyStatus(id, propertyStatus);
     }
 
+    @PreAuthorize("hasAuthority('OWNER')")
     @DeleteMapping("/{id}")
     public void deleteProperty(@PathVariable long id) {
         propertyService.deleteProperty(id);
