@@ -28,20 +28,20 @@ VALUES (1001, 'My House', 1001, 'My first property', 'HOUSE', 'AVAILABLE', true,
 
 
 INSERT INTO property (id, name, detail, category, status, is_active, price, owner_id, location_id)
-VALUES (1003, 'Villa Rica', '3 BHK independent house with lawn and pool', 'RESIDENTIAL', 'PENDING', true, 12000.0,
+VALUES (1003, 'Villa Rica', '3 BHK independent house with lawn and pool', 'RESIDENTIAL', 'AVAILABLE', true, 12000.0,
         1001, 1003),
        (1004, 'Palm Plaza', '4 BHK duplex apartment with garden and gym', 'COMMERCIAL', 'AVAILABLE', true, 100000.0,
         1002, 1004),
-       (1005, 'Ocean View', '5 BHK villa with ocean view and private beach', 'RESIDENTIAL', 'CONTINGENT', true,
+       (1005, 'Ocean View', '5 BHK villa with ocean view and private beach', 'RESIDENTIAL', 'AVAILABLE', true,
         23400.56, 1002,
         1005);
 
 -- CustomerOffer table
 INSERT INTO property_offers (id, status, customer_id, property_id, owner_id, amount)
-VALUES (1001, 'ACCEPTED', 1001, 1001, 1001, 100000),
-       (1003, 'ACCEPTED', 1001, 1003, 1001, 180000),
-       (1002, 'ACCEPTED', 1002, 1002, 1002, 200000),
-       (1004, 'ACCEPTED', 1002, 1001, 1001, 200000);
+VALUES (1001, 'AVAILABLE', 1001, 1001, 1001, 100000),
+       (1003, 'AVAILABLE', 1001, 1003, 1001, 180000),
+       (1002, 'AVAILABLE', 1002, 1002, 1002, 200000),
+       (1004, 'AVAILABLE', 1002, 1001, 1001, 200000);
 
 -- Property Image
 

@@ -37,8 +37,6 @@ public class OwnerController {
         return ownerService.getAllOwners();
     }
 
-
-
     @PreAuthorize("hasAuthority('OWNER') OR hasAuthority('ADMIN')")
     @GetMapping("/{id}")
     public OwnerDetailsDto getOwnerDetails(@PathVariable long id) {
@@ -58,6 +56,7 @@ public class OwnerController {
         return ownerService.getOwnerByUserId(userId);
     }
 
+    @PreAuthorize("hasAuthority('OWNER')")
     @GetMapping("/{id}/properties/{pid}/offers")
     public List<PropertyOfferDto> getAllOffersByOwnerAndProperty(@PathVariable long id, @PathVariable long pid) {
         return ownerService.getOwnerPropertyAllOffers(id, pid);

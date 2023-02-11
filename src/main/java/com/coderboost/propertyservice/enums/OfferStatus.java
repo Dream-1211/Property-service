@@ -3,7 +3,7 @@ package com.coderboost.propertyservice.enums;
 public enum OfferStatus {
     AVAILABLE,
     ACCEPTED,
-    CONSIDERING,
+    UNDER_PROCESS,
     REJECTED,
     CANCELED
 }

@@ -53,7 +53,8 @@ public class PropertyMapper {
                 property.getLocation().getLatitude(),
                 property.getLocation().getLongitude(),
                 toPropertyImageRequestDtoList(property.getImages()),
-                property.getOwner().getId()
+                property.getOwner().getId(),
+                property.getOwner().getUserId()
         );
     }
 
@@ -74,7 +75,8 @@ public class PropertyMapper {
                                     p.getLocation().getLatitude(),
                                     p.getLocation().getLongitude(),
                                     images,
-                                    p.getOwner().getId())
+                                    p.getOwner().getId(),
+                                    p.getOwner().getUserId())
                     );
                 }
         );

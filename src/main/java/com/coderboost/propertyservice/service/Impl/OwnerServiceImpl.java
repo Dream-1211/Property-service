@@ -6,6 +6,7 @@ import com.coderboost.propertyservice.dto.response.OwnerDto;
 import com.coderboost.propertyservice.dto.response.PropertyOfferDto;
 import com.coderboost.propertyservice.entity.Owner;
 import com.coderboost.propertyservice.entity.PropertyOffer;
+import com.coderboost.propertyservice.enums.OfferStatus;
 import com.coderboost.propertyservice.enums.UserStatus;
 import com.coderboost.propertyservice.exceptions.UserNotFoundException;
 import com.coderboost.propertyservice.mapper.OwnerMapper;
@@ -39,7 +40,6 @@ public class OwnerServiceImpl implements OwnerService {
 
     @Override
     public OwnerDetailsDto getOwnerDetailsById(long id) {
-        System.out.println("GETOWNER");
         Optional<Owner> owner = ownerRepo.findById(id);
         if (owner.isPresent()) {
             return OwnerMapper.toOwnerDetailsDto(owner.get());
@@ -70,10 +70,9 @@ public class OwnerServiceImpl implements OwnerService {
 
     @Override
     public List<PropertyOfferDto> getOwnerPropertyAllOffers(long id, long pid) {
-
-        List<PropertyOffer> propertyOffer = propertyOfferRepo.findByOwnerIdAndPropertyId(id,pid);
+        List<PropertyOffer> propertyOffer = propertyOfferRepo.findByOwnerIdAndPropertyIdOrderByStatusAsc(id, pid)
+                .stream().filter(po -> !po.getStatus().equals(OfferStatus.CANCELED)).toList();
         return PropertyOfferMapper.toListDto(propertyOffer);
-
     }
 
     @Override

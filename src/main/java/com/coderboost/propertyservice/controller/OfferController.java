@@ -4,6 +4,7 @@ import com.coderboost.propertyservice.dto.request.OfferCreateDto;
 import com.coderboost.propertyservice.enums.OfferStatus;
 import com.coderboost.propertyservice.service.OfferService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,11 +24,13 @@ public class OfferController {
         this.offerService = offerService;
     }
 
+    @PreAuthorize("hasAuthority('CUSTOMER')")
     @PostMapping
     public void addNewOffer(@RequestBody OfferCreateDto offerCreateDto) {
         offerService.addNewOffer(offerCreateDto);
     }
 
+    @PreAuthorize("hasAuthority('OWNER') OR hasAuthority('CUSTOMER')")
     @PutMapping("/{id}")
     public void updateOfferStatus(@PathVariable long id, @RequestBody OfferStatus offerStatus) {
         offerService.updateOfferStatus(id, offerStatus);

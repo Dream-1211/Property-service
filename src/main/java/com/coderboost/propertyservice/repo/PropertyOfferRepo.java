@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface PropertyOfferRepo extends JpaRepository<PropertyOffer, Long> {
 
-    List<PropertyOffer> findByOwnerIdAndPropertyId(long id, long pid);
+    List<PropertyOffer> findByOwnerIdAndPropertyIdOrderByStatusAsc(long id, long pid);
 }

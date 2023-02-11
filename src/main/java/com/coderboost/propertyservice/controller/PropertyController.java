@@ -40,7 +40,7 @@ public class PropertyController {
         return propertyService.fetchProperties();
     }
 
-    @PreAuthorize("hasAuthority('OWNER')")
+    @PreAuthorize("hasAuthority('OWNER') OR hasAuthority('CUSTOMER')")
     @GetMapping("/{id}")
     public PropertyDetailsDto fetchPropertyById(@PathVariable long id) {
         return propertyService.fetchPropertyById(id);
