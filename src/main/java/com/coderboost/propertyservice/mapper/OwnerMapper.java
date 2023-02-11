@@ -25,7 +25,7 @@ public class OwnerMapper {
 
     public static OwnerDto toDto(Owner owner) {
         return new OwnerDto(owner.getId(), owner.getName(), owner.getUserId(), owner.getAddress().getStreet(),
-                owner.getAddress().getZipCode(), owner.getAddress().getState(), owner.getStatus());
+                owner.getAddress().getZipCode(), owner.getAddress().getState(), owner.getStatus(), owner.getProperty().size()>0? true: false);
     }
 
     public static OwnerDetailsDto toOwnerDetailsDto(Owner owner) {
