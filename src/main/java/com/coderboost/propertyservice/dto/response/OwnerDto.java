@@ -2,6 +2,7 @@ package com.coderboost.propertyservice.dto.response;
 
 import com.coderboost.propertyservice.enums.UserStatus;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,6 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@Builder
 public class OwnerDto {
     long id;
     String name;
@@ -18,4 +20,6 @@ public class OwnerDto {
     String zipCode;
     String state;
     UserStatus status;
+
+    boolean hasProperties;
 }
