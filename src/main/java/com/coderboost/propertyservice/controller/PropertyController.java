@@ -29,15 +29,15 @@ public class PropertyController {
         this.propertyService = propertyService;
     }
 
+    @GetMapping
+    public List<PropertyDetailsDto> fetchProperties() {
+        return propertyService.fetchProperties();
+    }
+
     @PreAuthorize("hasAuthority('OWNER')")
     @PostMapping
     public void addNewProperty(@RequestBody PropertyCreateDto propertyCreateDto) {
         propertyService.addProperty(propertyCreateDto);
-    }
-
-    @GetMapping
-    public List<PropertyDetailsDto> fetchProperties() {
-        return propertyService.fetchProperties();
     }
 
     @PreAuthorize("hasAuthority('OWNER') OR hasAuthority('CUSTOMER')")

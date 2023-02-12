@@ -4,6 +4,7 @@ import com.coderboost.propertyservice.dto.CustomerDto;
 import com.coderboost.propertyservice.dto.response.PropertyOfferDto;
 import com.coderboost.propertyservice.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,16 +32,19 @@ public class CustomerController {
         customerService.saveCustomer(newCustomer);
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping
     public List<CustomerDto> getAllCustomers() {
-       return customerService.getAllCustomers();
+        return customerService.getAllCustomers();
     }
 
+    @PreAuthorize("hasAuthority('CUSTOMER')")
     @GetMapping("/userid/{userId}")
     public CustomerDto getCustomerByUserId(@PathVariable long userId) {
         return customerService.getCustomerByUserId(userId);
     }
 
+    @PreAuthorize("hasAuthority('CUSTOMER')")
     @GetMapping("/{id}/offers")
     public List<PropertyOfferDto> getCustomerOffers(@PathVariable long id){
         return customerService.getCustomerOffers(id);

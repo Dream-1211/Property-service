@@ -31,6 +31,11 @@ public class OwnerController {
         this.ownerService = ownerService;
     }
 
+    @PostMapping
+    public void addNewOwner(@RequestBody NewOwnerDto ownerDto) {
+        ownerService.saveOwner(ownerDto);
+    }
+
     @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping
     public List<OwnerDto> getAllOwners() {
@@ -42,7 +47,6 @@ public class OwnerController {
     public OwnerDetailsDto getOwnerDetails(@PathVariable long id) {
         return ownerService.getOwnerDetailsById(id);
     }
-
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @PutMapping()
@@ -61,12 +65,5 @@ public class OwnerController {
     public List<PropertyOfferDto> getAllOffersByOwnerAndProperty(@PathVariable long id, @PathVariable long pid) {
         return ownerService.getOwnerPropertyAllOffers(id, pid);
     }
-
-    @PostMapping
-    public void addNewOwner(@RequestBody NewOwnerDto ownerDto) {
-        ownerService.saveOwner(ownerDto);
-    }
-
-
 }
 
